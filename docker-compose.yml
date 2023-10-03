@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mail-backup:
+    container_name: ${CONTAINER_NAME}
+    image: mail-backup:master
+    environment:
+      - TZ=Europe/Berlin
+      - JOB_TITLE=Mail-Backup
+    ports:
+      - ${PIPELINE_PORT}:80
+    volumes:
+      - ${MAIL_FOLDER}:/var/imapbox
+      - ${UNSYNCED_FOLDER}:/unsynced
+      - ${CONFIG_DIR}:/etc/imapbox
+    restart: always
