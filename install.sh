@@ -10,8 +10,7 @@ fi
 
 echo "Use config: $CONFIG"
 
-chmod +x $CONFIG
-. $CONFIG
+source $CONFIG
 
 assert_var() {
      MSG=$1

@@ -1,4 +1,4 @@
-FROM codetreats/simple-pipeline:0.7.2
+FROM codetreats/simple-pipeline:latest
 RUN apt-get update && apt-get install -q -y python3 python3-pip  python3-usb usbutils pipx imagemagick gsfonts
 RUN pip install six
 RUN pip install chardet
