@@ -1,9 +1,24 @@
 version: '3'
 services:
   mail-backup:
+    hostname: ${CONTAINER_NAME}
     container_name: ${CONTAINER_NAME}
     image: mail-backup:master
     environment:
+      - HOST_HOSTNAME=${HOST_HOSTNAME}
+      - MONITOR_HOST=${MONITOR_HOST}
+      - MONITOR_UPDATE=${MONITOR_UPDATE}
+      - MONITOR_URL=${MONITOR_URL}
+      - MONITOR_SECRET=${MONITOR_SECRET}
+      - MONITOR_SRC=${MONITOR_SRC}
+      - MAIL_HOST=${MAIL_HOST}
+      - MAIL_USER=${MAIL_USER}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - MAIL_FROM=${MAIL_FROM}
+      - MAIL_TO=${MAIL_TO}
+      - HOST_URL=http://${HOST_HOSTNAME}:${PIPELINE_PORT}
+      - MAIL_LEVEL_OK=OFF 
+      - MAIL_LEVEL_FAIL=LINK
       - TZ=Europe/Berlin
       - JOB_TITLE=Mail-Backup
     ports:
