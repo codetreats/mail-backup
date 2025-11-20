@@ -1,8 +1,5 @@
 FROM codetreats/simple-pipeline:latest
-RUN apt-get update && apt-get install -q -y python3 python3-pip  python3-usb usbutils pipx imagemagick gsfonts
-RUN pip install six
-RUN pip install chardet
-RUN pip install pdfkit
+RUN apt-get update && apt-get install -q -y python3 python3-pip  python3-usb python3-six python3-chardet python3-pdfkit usbutils pipx imagemagick gsfonts
 COPY src /src
 COPY src/job.sh /job/
 RUN chmod +x /src/*.sh
